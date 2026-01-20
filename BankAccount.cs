@@ -10,15 +10,25 @@ namespace Mod7InheritanceDemo
         public string AccountHolder { get; set; }
 
         private decimal balance;
-
         public decimal Balance
         {
             get { return balance; }
-            set { balance = value; }
+            set
+            { 
+                if(value >= minimumBalance)
+                {
+                    balance = value; 
+                }
+                else
+                {
+                    Console.WriteLine($"alance cannot be less than {minimumBalance}");
+                }
+            }
         }
-        protected decimal minimumBalance; // to hide it from clinet code but make it accessible to dervied classes.
-
+        protected decimal minimumBalance;
     }
-
-
 }
+
+
+
+
